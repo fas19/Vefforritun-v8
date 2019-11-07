@@ -1,3 +1,21 @@
+# Vefforritun-v8
+
+## Fannar Sævarsson
+### fas19@hi.is
+#### https://notendur.hi.is/fas19/vefforritun/verkefni8/
+---
+
+---
+
+---
+
+
+#   VERKEFNISLÝSING
+
+---
+---
+---
+
 # Verkefni 8
 
 Forrita skal viðmót sem leyfir að bæta við, breyta, eyða og klára verkefni af lista.
