@@ -35,6 +35,7 @@ const text = (() => {
 
     // Ef texti er ekki í lagi stoppar fallið hér.
     if (!validateText(textarea.value)) {
+      textarea.value = '';
       return;
     }
 
@@ -127,7 +128,7 @@ const text = (() => {
 
   // hjalparfall til að athuga hvort texti sé >0 eða <65
   function validateText(text) {
-    if (text.length > 0 && text.length < 65) {
+    if (text.length > 0 && text.length < 65 && text.trim().length>0) {
       return true;
     }
     else {
