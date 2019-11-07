@@ -33,25 +33,23 @@ const text = (() => {
   function formHandler(e) {
     e.preventDefault();
 
-    console.log('formHandler');
-    console.log(e.target);
-
+    // Ef texti er ekki í lagi stoppar fallið hér.
     if (!validateText(textarea.value)) {
-      //console.log('texti ekki i lagi');
       return;
-
     }
-    var divElement = el("li", "item", formHandler);
-    var inp = el("input", "item__checkbox", 'change');
+
+    //Bý til nýtt niv með tilheyrandi börnum og event listeners.
+    var divElement = el("li", "item");
+    var inp = el("input", "item__checkbox");
     inp.setAttribute("type", "checkbox");
     inp.addEventListener('change', finish);
     divElement.appendChild(inp);
-    var sp = el("span", "item__text", 'click');
+    var sp = el("span", "item__text");
     var y = document.createTextNode(textarea.value);
     sp.addEventListener('click', edit);
     sp.appendChild(y);
     divElement.appendChild(sp);
-    var bt = el("button", "item__button", 'click');
+    var bt = el("button", "item__button");
     bt.classList.add("item__button");
     var z = document.createTextNode("Eyða");
     bt.addEventListener('click', deleteItem);
@@ -66,17 +64,13 @@ const text = (() => {
   function finish(e) {
     e.preventDefault();
     e.target.parentElement.classList.toggle("item--done");
-
-    //console.log('finish');
-    //console.log(e.target);
     event.stopPropagation();
-
   }
 
   // event handler fyrir það að breyta færslu
   function edit(e) {
     e.preventDefault();
-    //console.log(e.target);
+    //Swissa út span fyrir input-text.
     var prevtext = e.target.textContent;
     var nyrtextarea = el('input', "item__text");
     nyrtextarea.setAttribute("type", "text");
@@ -88,15 +82,12 @@ const text = (() => {
     nyrtextarea.value = prevtext;
     nyrtextarea.addEventListener('keypress', commit);
     nyrtextarea.focus();
-
-
   }
-
 
   // event handler fyrir það að klára að breyta færslu
   function commit(e) {
     if (e.keyCode == ENTER_KEYCODE) {
-     // console.log('yoyoy');
+      //swissa út intput-text fyrir span.
       var textarea = e.target;
       var prevtext = textarea.value;
       var nyrtextarea = el('span', "item__text");
@@ -108,7 +99,6 @@ const text = (() => {
       nyrtextarea.value = prevtext;
       nyrtextarea.addEventListener('click', edit);
     }
-
   }
 
   // fall sem sér um að bæta við nýju item
